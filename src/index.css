@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --primary: #ff0f7b;
+  --secondary: #f89b29;
+
+  --gradient-bg: linear-gradient(135deg, var(--secondary), var(--primary));
+
+  --duration: 0.4s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: url("../assets/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.015),
+    rgba(255, 255, 255, 0.1)
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 48px 36px;
+  border-radius: 24px;
+  box-shadow: 1.5px 1.5px 0 rgba(0, 0, 0, 0.3), 2px 2px 0 rgba(0, 0, 0, 0.2),
+    2px 25px 45px rgba(0, 0, 0, 0.8), -1.5px -1.5px 0 rgba(255, 255, 255, 0.4),
+    -6px -4px 35px rgba(255, 255, 255, 0.2), inset 0 0 35px rgba(0, 0, 0, 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 6px;
+  color: white;
+}
+
+.heading .main {
+  font-weight: 800;
+}
+
+.heading .sub {
+  font-weight: 300;
+}
+
+.form {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+  width: 100%;
+}
+
+.field-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.field .icon {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+.field input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.field input::placeholder {
+  color: rgba(255, 255, 255, 0.9);
+  opacity: 0;
+  transition: all var(--duration);
+}
+
+.field .show-btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.field .show-btn svg {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+}
+
+.field label {
+  position: absolute;
+  left: 52px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  pointer-events: none;
+  transition: all var(--duration);
+}
+
+.field span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--gradient-bg);
+  border-radius: 8px;
+  z-index: -1;
+  transition: all var(--duration);
+}
+
+.field input:focus::placeholder {
+  opacity: 1;
+}
+
+.field input:focus ~ label,
+.field input:not(:placeholder-shown) ~ label {
+  left: 0;
+  top: -12px;
+  font-size: 14px;
+}
+
+.field input:focus ~ span,
+.field input:not(:placeholder-shown) ~ span {
+  height: 100%;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  column-gap: 6px;
+}
+
+.action p {
+  font-weight: 400;
+  pointer-events: none;
+  color: white;
+}
+
+.action a {
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: var(--gradient-bg);
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.logo {
+  margin-top: 40px;
+  background: var(--gradient-bg);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 680px) {
+  .container {
+    height: 100%;
+    max-width: 100%;
+    border-radius: 0;
+  }
+}
